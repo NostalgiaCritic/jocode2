@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My page</title>
+</head>
+<body>
+
+  <ul>
+    <% for(comment of comments) { %>
+      <li><%= comment.content %></li>
+      <form action="/update/<%= comment.id %>" method="post">
+        <input type="text" id="lname" name="content">
+        <input type="submit" value="수정">
+      </form>
+      <form action="/delete/<%= comment.id %>" method="post">
+        <input type="submit" value="삭제">
+      </form>
+    <% } %>
+  </ul>
+
+  <form action="/create" method="get">
+    <label>GET 요청</label>
+    <input type="text" id="lname" name="content"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <form action="/create" method="post">
+    <label>POST 요청</label>
+    <input type="text" id="lname" name="content"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
